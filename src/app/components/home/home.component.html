@@ -69,7 +69,15 @@
   </div>
 </form>
 <!-- Invoice Start -->
-<section class="bg-invoice bg-light">
+<section
+  class="bg-invoice"
+  style="
+    background-image: url('https://sparkmailapp.com/img/blog/create-professional-email-address-format-examples.png?1592587369412');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  "
+>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -100,141 +108,68 @@
               </div>
             </div> -->
             <br />
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              Agregar Destinatario
-            </button>
+            <div class="float-left">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Agregar Destinatario
+              </button>
+            </div>
+            <br />
+            <br />
 
-            <br />
-            <br />
-            <!--<div class="invoice-table pb-4">
+            <div class="invoice-table pb-4">
               <div class="table-responsive bg-white shadow rounded">
-                <table class="table mb-0 table-center invoice-tb">
+                <table id="" class="table mb-0 table-center text-center">
                   <thead class="bg-light">
                     <tr>
-                      <th scope="col" class="text-left">No.</th>
-                      <th scope="col" class="text-left">Email</th>
                       <th scope="col">Nombre</th>
-                      <th scope="col">Apellido Paterno</th>
-                      <th scope="col">Apellido Materno</th>
-                      <th scope="col">Seleccionar</th>
+                      <th scope="col">Email</th>
                       <th scope="col">Opciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row" class="text-left">1</th>
-                      <td class="text-left">edgar@email.com</td>
-                      <td>Edgar</td>
-                      <td>Carrera</td>
-                      <td>Carrasco</td>
+                    <tr *ngFor="let contact of _userService.contacts">
+                      <td hidden>{{ contact.cUSU_Id }}</td>
+                      <td hidden>{{ contact.cMAIL_Id }}</td>
+                      <td>{{ contact.cMAIL_Nombre }}</td>
+                      <td>{{ contact.cMAIL_Mail }}</td>
                       <td>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="defaultCheck1"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="defaultCheck1"
-                            style="color: blue"
-                          >
-                            Agregar
-                          </label>
-                        </div>
+                        <button
+                          type="button"
+                          class="btn btn-info float-right"
+                          (click)="addContact(contact)"
+                        >
+                          Agregar
+                        </button>
                       </td>
-                      <td style="color: red">Editar/Eliminar</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-left">2</th>
-                      <td class="text-left">oscar@email.com</td>
-                      <td>Oscar</td>
-                      <td>Aranda</td>
-                      <td>Salas</td>
-                      <td>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="defaultCheck1"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="defaultCheck1"
-                            style="color: blue"
-                          >
-                            Agregar
-                          </label>
-                        </div>
-                      </td>
-                      <td style="color: red">Editar/Eliminar</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="text-left">3</th>
-                      <td class="text-left">miguel@mail.com</td>
-                      <td>Miguel</td>
-                      <td>Aparicio</td>
-                      <td>Herrara</td>
-                      <td>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            id="defaultCheck1"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="defaultCheck1"
-                            style="color: blue"
-                          >
-                            Agregar
-                          </label>
-                        </div>
-                      </td>
-                      <td style="color: red">Editar/Eliminar</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <br />
-              <div class="row">
-                <div class="container-fluid text-right">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="defaultCheck1"
-                    />
-                    <label
-                      class="form-check-label"
-                      for="defaultCheck1"
-                      style="color: blue"
-                    >
-                      Agregar Todos
-                    </label>
-                  </div>
-                </div>
+              <div class="text-right">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  (click)="eraseContacts()"
+                >
+                  Borrar lista
+                </button>
               </div>
-            </div>-->
+            </div>
 
             <form #loginForm="ngForm" (ngSubmit)="btnSendEmail()">
-
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="inputPassword4">Para:</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="inputPassword4"
+                    id="email_receptor"
                     placeholder=""
                     #Email_receptor="ngModel"
                     name="email_receptor"
@@ -244,11 +179,11 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="inputPassword4">Asunto</label>
+                  <label for="inputPassword4">Saludo</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="inputPassword4"
+                    id="asunto"
                     placeholder=""
                     #Asunto="ngModel"
                     name="asunto"
@@ -258,7 +193,7 @@
               </div>
 
               <div class="form-group">
-                <label for="inputAddress">Contenido</label>
+                <label for="inputAddress">Mensaje</label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -269,7 +204,7 @@
                 ></textarea>
               </div>
 
-               <!--<div class="input-group">
+              <!--<div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupFileAddon01"
                     >Adjutar</span
@@ -288,8 +223,9 @@
 
               </div></div>-->
               <br />
-
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
             </form>
           </div>
         </div>

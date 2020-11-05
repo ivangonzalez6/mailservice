@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { LoginModel } from 'src/app/models/loginModel';
 import { EmailModel } from 'src/app/models/emailModel';
+import { Contact } from 'src/app/models/contacts';
 import { observable } from 'rxjs';
 
 @Injectable()
@@ -135,5 +136,20 @@ export class UserService {
       .pipe(map((res) => res));
   }
 
+  getReceivers(id) {
+    let us_id = JSON.parse(id);
+
+    let headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Headers', 'Content-Type');
+    headers.append('Access-Control-Allow-Methods', 'GET');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http
+      .get(this.url + 'getdestinatarios' + '?us_id=' + us_id, {
+        headers,
+      })
+      .pipe(map((res) => res));
+  }
+
   users: User[] = [];
+  contacts: Contact[] = [];
 }

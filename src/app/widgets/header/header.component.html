@@ -1,16 +1,20 @@
 <!-- Navbar STart -->
-<header id="topnav" class="defaultscroll sticky active sticky bg-white">
+<header
+  id="topnav"
+  class="defaultscroll sticky active sticky"
+  style="background-color: #394867"
+>
   <div class="container">
     <!-- Logo container-->
     <div>
-      <a class="logo" [routerLink]="['/home']"
-        >Sicom<span class="text-primary">.</span></a
+      <a class="logo" style="color: white!" [routerLink]="['/home']"
+        ><span style="color: white">Sicom.</span></a
       >
     </div>
 
-    <div id="navigation">
+    <div id="navigation" class="float-right">
       <ul class="navigation-menu">
-        <li><a [routerLink]="['/login']" class="text-blue">Salir</a></li>
+        <li><a [routerLink]="['/login']" style="color: white">Salir</a></li>
       </ul>
     </div>
 
@@ -20,7 +24,7 @@
         <!-- Mobile menu toggle-->
         <a class="navbar-toggle">
           <div class="lines">
-            <a [routerLink]="['/login']" class="text-blue">Salir</a>
+            <a [routerLink]="['/login']" style="color: white">Salir</a>
           </div>
         </a>
         <!-- End mobile menu toggle-->
