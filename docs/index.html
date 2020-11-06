@@ -12,11 +12,16 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link
-      href="cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
+      href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.8ba89958272ea4cdebc4.css" />
-  </head>
+    <!-- MDBootstrap Datatables  -->
+
+    <link
+      href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="styles.8ba89958272ea4cdebc4.css"></head>
   <body>
     <app-root></app-root>
 
@@ -29,8 +34,28 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="runtime.acf0dec4155e77772545.js" defer></script>
-    <script src="polyfills.35a5ca1855eb057f016a.js" defer></script>
-    <script src="main.fedba72a91dfebbc6233.js" defer></script>
-  </body>
+    <!-- MDBootstrap Datatables  -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"
+    ></script>
+    <script>
+
+      $(document).ready(function () {
+        $("#dtBasicExample").DataTable();
+      });
+    </script>
+  <script src="runtime.acf0dec4155e77772545.js" defer></script><script src="polyfills.35a5ca1855eb057f016a.js" defer></script><script src="main.f2bfa451205e3e5794f0.js" defer></script></body>
 </html>
