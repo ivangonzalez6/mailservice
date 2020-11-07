@@ -36,7 +36,7 @@
                       #nombre="ngModel"
                       name="nombre"
                       [(ngModel)]="user.nombre"
-                      required=""
+                      required="true"
                     />
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                       #apellido_paterno="ngModel"
                       name="apellido_paterno"
                       [(ngModel)]="user.apellido_paterno"
-                      required=""
+                      required="true"
                     />
                   </div>
                 </div>
@@ -78,7 +78,7 @@
                       #apellido_materno="ngModel"
                       name="apellido_materno"
                       [(ngModel)]="user.apellido_materno"
-                      required=""
+                      required="true"
                     />
                   </div>
                 </div>
@@ -94,7 +94,7 @@
                       #email="ngModel"
                       name="email"
                       [(ngModel)]="user.correo"
-                      required=""
+                      required="true"
                     />
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                       #password="ngModel"
                       name="password"
                       [(ngModel)]="user.password"
-                      required=""
+                      required="true"
                       autocomplete="off"
                     />
                   </div>
@@ -119,10 +119,11 @@
                   <button class="btn btn-primary btn-block">Registrarse</button>
                 </div>
 
-
                 <div class="mx-auto">
                   <p class="mb-0 mt-3">
-                    <a  [routerLink]="['/terminos']" class="text-primary">Terminos & Condiciones</a>
+                    <a [routerLink]="['/terminos']" class="text-primary"
+                      >Terminos & Condiciones</a
+                    >
                   </p>
 
                   <p class="mb-0 mt-3">
@@ -132,10 +133,7 @@
                       class="text-dark font-weight-bold"
                       >Ingresar</a
                     >
-
                   </p>
-
-
                 </div>
               </div>
             </form>
